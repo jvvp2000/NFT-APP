@@ -65,7 +65,7 @@ export const Details = ({ route, navigation }) => {
       </View>
       <FlatList
         data={data.bids}
-        // renderItem={({ item }) => <DetailsBid bid={item} />}
+        renderItem={({ item }) => <DetailsBid bid={item} />}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: SIZES.extraLarge * 3 }}
@@ -75,6 +75,18 @@ export const Details = ({ route, navigation }) => {
             <Subinfo />
             <View style={{ padding: SIZES.font }}>
               <DetailsDesc data={data} />
+
+              {data.bids.length > 0 && (
+                <Text
+                  style={{
+                    fontSize: SIZES.font,
+                    fontFamily: FONTS.semiBold,
+                    color: COLORS.primary,
+                  }}
+                >
+                  Current Bids
+                </Text>
+              )}
             </View>
           </React.Fragment>
         )}
